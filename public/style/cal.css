@@ -1,0 +1,146 @@
+/* General Styles */
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+  }
+  
+  /* Calculator Title */
+  .calculator-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #28a745; /* Green color */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Calculator Box */
+  .calculator {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  /* Room Inputs */
+  .room-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .room {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .room-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .room-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .room-input:focus {
+    border-color: #28a745; /* Green border on focus */
+  }
+  
+  .room-price {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* Service Options */
+  .service-options {
+    margin-top: 20px;
+  }
+  
+  .service-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .service-checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: #28a745; /* Green checkbox */
+  }
+  
+  /* Calculate Button */
+  .calculate-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #28a745; /* Green button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .calculate-button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  /* Total Cost */
+  .total-cost {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #28a745; /* Green color */
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .calculator-title {
+      font-size: 2rem;
+    }
+  
+    .calculator {
+      padding: 20px;
+    }
+  
+    .room-label {
+      font-size: 1rem;
+    }
+  
+    .room-input {
+      font-size: 0.9rem;
+    }
+  
+    .service-label {
+      font-size: 0.9rem;
+    }
+  
+    .calculate-button {
+      font-size: 0.9rem;
+    }
+  
+    .total-cost {
+      font-size: 1.2rem;
+    }
+  }
