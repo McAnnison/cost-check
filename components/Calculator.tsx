@@ -188,6 +188,46 @@ const Calculator: React.FC = () => {
           </label>
         </div>
       </div>
+      {/* Additional Rooms/Items Section */}
+      <div className="additional-items">
+        <h3>Additional Items to Clean</h3>
+        <div className="additional-item">
+          <label>
+            <input
+              type="checkbox"
+              checked={rooms.garage?.count > 0}
+              onChange={(e) =>
+                handleChange('garage', 'count', e.target.checked ? 1 : 0)
+              }
+            />
+            Garage ($50)
+          </label>
+        </div>
+        <div className="additional-item">
+          <label>
+            <input
+              type="checkbox"
+              checked={rooms.playRoom?.count > 0}
+              onChange={(e) =>
+                handleChange('playRoom', 'count', e.target.checked ? 1 : 0)
+              }
+            />
+            Play Room ($50)
+          </label>
+        </div>
+        <div className="additional-item">
+          <label>
+            <input
+              type="checkbox"
+              checked={rooms.fridge?.count > 0}
+              onChange={(e) =>
+                handleChange('fridge', 'count', e.target.checked ? 1 : 0)
+              }
+            />
+            Fridge ($50)
+          </label>
+        </div>
+      </div>
 
       {/* Additional Services */}
       <div className="service-options">
