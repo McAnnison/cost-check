@@ -1,146 +1,175 @@
 /* General Styles */
 .calculator-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f9f9f9;
-    font-family: 'Poppins', sans-serif;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.intro-text {
+  font-size: clamp(1rem, 2vw, 1.2rem); 
+  color: #555;
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.calculator-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem); 
+  font-weight: 200;
+  color: #105c21; 
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Room Section */
+.room-section {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+}
+
+.room-image {
+  flex: 1;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.room-details {
+  flex: 2;
+  min-width: 250px; 
+}
+
+.room-details h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.room-details label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: clamp(0.9rem, 1.5vw, 1rem); 
+  color: #555;
+}
+
+.room-input,
+.room-select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: clamp(0.9rem, 1.5vw, 1rem); /* Dynamic font size */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-input:focus,
+.room-select:focus {
+  border-color: #28a745; /* Green border on focus */
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.3); /* Green glow */
+}
+
+/* Service Options */
+.service-options {
+  margin-top: 20px;
+}
+
+.service-label {
+  display: block;
+  font-size: clamp(0.9rem, 1.5vw, 1rem); /* Dynamic font size */
+  margin-bottom: 10px;
+}
+
+.service-checkbox {
+  margin-right: 10px;
+}
+
+.calculate-button {
+  display: block;
+  margin: 20px auto;
+  padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 24px); 
+  font-size: clamp(1rem, 2vw, 1.3rem); 
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calculate-button:hover {
+  background-color: #218838;
+}
+
+.total-cost {
+  text-align: center;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* Dynamic font size */
+  margin-top: 20px;
+  color: #28a745;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+
+/* For tablets and smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .room-section {
+      flex-direction: column;
+      align-items: flex-start;
   }
-  
-  /* Calculator Title */
-  .calculator-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #28a745; /* Green color */
-    margin-bottom: 20px;
-    text-align: center;
+
+  .room-image {
+      width: 100%;
+      margin-bottom: 15px;
   }
-  
-  /* Calculator Box */
-  .calculator {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
+
+  .room-details {
+      width: 100%;
   }
-  
-  /* Room Inputs */
-  .room-inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .calculator-container {
+      padding: 10px;
   }
-  
-  .room {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+
+  .room-section {
+      padding: 15px;
   }
-  
-  .room-label {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #333;
+
+  .room-input,
+  .room-select {
+      padding: 8px;
   }
-  
-  .room-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    transition: border-color 0.3s ease;
+}
+
+/* For larger screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .calculator-container {
+      max-width: 1400px;
   }
-  
-  .room-input:focus {
-    border-color: #28a745; /* Green border on focus */
-  }
-  
-  .room-price {
-    font-size: 0.9rem;
-    color: #777;
-  }
-  
-  /* Service Options */
-  .service-options {
-    margin-top: 20px;
-  }
-  
-  .service-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .service-checkbox {
-    width: 16px;
-    height: 16px;
-    accent-color: #28a745; /* Green checkbox */
-  }
-  
-  /* Calculate Button */
-  .calculate-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    background-color: #28a745; /* Green button */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .calculate-button:hover {
-    background-color: #218838; /* Darker green on hover */
-  }
-  
-  /* Total Cost */
-  .total-cost {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #28a745; /* Green color */
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .calculator-title {
-      font-size: 2rem;
-    }
-  
-    .calculator {
-      padding: 20px;
-    }
-  
-    .room-label {
-      font-size: 1rem;
-    }
-  
-    .room-input {
-      font-size: 0.9rem;
-    }
-  
-    .service-label {
-      font-size: 0.9rem;
-    }
-  
-    .calculate-button {
-      font-size: 0.9rem;
-    }
-  
-    .total-cost {
-      font-size: 1.2rem;
-    }
-  }
+}

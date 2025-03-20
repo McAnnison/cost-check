@@ -2,15 +2,17 @@
 "use client";
 import React from 'react';
 import Header from '../components/Header';
-import Calculator from '../components/Footer';
-import Footer from '../components/Calculator';
+import Calculator from '../components/Calculator';
+import Footer from '../components/Footer';
 
 const App: React.FC = () => {
   return (
-    <div className="app">
-      <Header />
-      <Calculator />
+    <div>
+      <div className="app">
+        <Header />
+        <Calculator />
       <Footer />
+      </div>
     </div>
   );
 };
