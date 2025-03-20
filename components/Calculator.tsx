@@ -63,8 +63,12 @@ const Calculator: React.FC = () => {
             <input
               type="number"
               min="0"
-              value={rooms.bedroom.count}
-              onChange={(e) => handleChange('bedroom', 'count', Number(e.target.value))}
+              value={rooms.bedroom.count === 0 ? '' : rooms.bedroom.count}
+              onChange={(e) => {
+                const value = e.target.value;
+                const numericValue = value === '' ? 0 : Math.max(0, Number(value));
+                handleChange('bedroom', 'count', numericValue);
+              }}
               className="room-input"
             />
           </label>
@@ -93,8 +97,12 @@ const Calculator: React.FC = () => {
             <input
               type="number"
               min="0"
-              value={rooms.bathroom.count}
-              onChange={(e) => handleChange('bathroom', 'count', Number(e.target.value))}
+              value={rooms.bathroom.count === 0 ? '' : rooms.bathroom.count}
+              onChange={(e) => {
+                const value = e.target.value;
+                const numericValue = value === '' ? 0 : Math.max(0, Number(value));
+                handleChange('bathroom', 'count', numericValue);
+              }}
               className="room-input"
             />
           </label>
@@ -123,8 +131,12 @@ const Calculator: React.FC = () => {
             <input
               type="number"
               min="0"
-              value={rooms.kitchen.count}
-              onChange={(e) => handleChange('kitchen', 'count', Number(e.target.value))}
+              value={rooms.kitchen.count === 0 ? '' : rooms.kitchen.count}
+              onChange={(e) => {
+                const value = e.target.value;
+                const numericValue = value === '' ? 0 : Math.max(0, Number(value));
+                handleChange('kitchen', 'count', numericValue);
+              }}
               className="room-input"
             />
           </label>
@@ -153,8 +165,12 @@ const Calculator: React.FC = () => {
             <input
               type="number"
               min="0"
-              value={rooms.livingRoom.count}
-              onChange={(e) => handleChange('livingRoom', 'count', Number(e.target.value))}
+              value={rooms.livingRoom.count === 0 ? '' : rooms.livingRoom.count}
+              onChange={(e) => {
+                const value = e.target.value;
+                const numericValue = value === '' ? 0 : Math.max(0, Number(value));
+                handleChange('livingRoom', 'count', numericValue);
+              }}
               className="room-input"
             />
           </label>
@@ -175,24 +191,72 @@ const Calculator: React.FC = () => {
 
       {/* Additional Services */}
       <div className="service-options">
-        <label className="service-label">
-          <input
-            type="checkbox"
-            checked={gardening}
-            onChange={() => setGardening(!gardening)}
-            className="service-checkbox"
-          />
-          Gardening ($100)
-        </label>
-        <label className="service-label">
-          <input
-            type="checkbox"
-            checked={hasPet}
-            onChange={() => setHasPet(!hasPet)}
-            className="service-checkbox"
-          />
-          Pet at Home ($50)
-        </label>
+        <div className="service-option">
+          <Image src="/gardening.png" alt="Gardening" width={300} height={250}/>
+          <label className="service-label">
+            <input
+              type="checkbox"
+              checked={gardening}
+              onChange={() => setGardening(!gardening)}
+              className="service-checkbox"
+            />
+            Gardening ($100)
+          </label>
+        </div>
+        <div className="service-option" style={{ position: 'relative' }}>
+          <Image src="/pets.png" alt="Pet" width={300} height={250} />
+          <label
+            className="service-label">
+            <input
+              type="checkbox"
+              checked={hasPet}
+              onChange={() => setHasPet(!hasPet)}
+              className="service-checkbox"
+            />
+            Pet at Home ($50)
+          </label>
+        </div>
+      </div>
+
+      {/* Customer Details Form */}
+      <div className="customer-form">
+        <h3>Customer Details</h3>
+        <form>
+          <label>
+            Name:
+            <input
+              type="text"
+              placeholder="Enter your name"
+              className="form-input"
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="form-input"
+            />
+          </label>
+          <label>
+            Phone:
+            <input
+              type="tel"
+              placeholder="Enter your phone number"
+              className="form-input"
+            />
+          </label>
+          <label>
+            Comments or Questions:
+            <textarea
+              placeholder="Enter your comments or questions"
+              className="form-textarea"
+            ></textarea>
+          </label>
+          <button type="submit" className="checkout-button">
+            Checkout
+          </button>
+        </form>
       </div>
 
       {/* Calculate Button */}
