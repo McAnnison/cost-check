@@ -1,35 +1,53 @@
-import React from 'react';
+"use client";
 import "../public/style/footer.css";
-import Image from 'next/image'; 
+import React from 'react';
 
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>About Us</h3>
-          <p>CleanMate is dedicated to providing top-notch cleaning services to make your home sparkle.</p>
-        </div>
-        <div className="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+          {/* Quick Links Section */}
+          <h3 className="footer-title">Quick Links</h3>
+          <ul className="footer-list">
+            <li><a href="#" className="footer-link">Home</a></li>
+            <li><a href="#" className="footer-link">Services</a></li>
+            <li><a href="#" className="footer-link">Pricing</a></li>
+            <li><a href="#" className="footer-link">About Us</a></li>
+            <li><a href="#" className="footer-link">Contact</a></li>
           </ul>
         </div>
+
         <div className="footer-section">
-          <h3>Follow Us</h3>
-          <div className="social-icons">
-            <a href="#"><Image src="/icons8-facebook-30.png" alt="Facebook logo" width={50} height={50} /></a>
-            <a href="#"><Image src="/icons8-x-50.png" alt="Twitter logo" width={50} height={50} /></a>
-            <a href="#"><Image src="/icons8-instagram-50.png" alt="Instagram logo" width={50} height={50} /></a>
-          </div>
+          {/* Our Services Section */}
+          <h3 className="footer-title">Our Services</h3>
+          <ul className="footer-list">
+            <li><a href="#" className="footer-link">Home Cleaning</a></li>
+            <li><a href="#" className="footer-link">Office Cleaning</a></li>
+            <li><a href="#" className="footer-link">Deep Cleaning</a></li>
+            <li><a href="#" className="footer-link">Move In/Out Cleaning</a></li>
+            <li><a href="#" className="footer-link">Commercial Cleaning</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-section">
+          {/* Contact Us Section */}
+          <h3 className="footer-title">Contact Us</h3>
+          <ul className="footer-list">
+            <li>1234 Main Street, Suite 100</li>
+            <li>New York, NY 10001</li>
+            <li>(212) 345-6789</li>
+            <li><a href="mailto:info@cleanmate.com" className="footer-link">info@cleanmate.com</a></li>
+          </ul>
         </div>
       </div>
+
       <div className="footer-bottom">
-        <p>&copy; 2025 CleanMate. All rights reserved.</p>
+        <p>© 2025 CleanMate. All rights reserved.</p>
+        <div className="footer-policies">
+          <a href="#" className="footer-link">Privacy Policy</a>
+          <a href="#" className="footer-link">Terms of Service</a>
+        </div>
       </div>
     </footer>
   );
