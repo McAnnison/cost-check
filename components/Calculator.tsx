@@ -350,6 +350,7 @@ const Calculator: React.FC = () => {
 
       {/* Invoice Form */}
       <div className="contact-form">
+        <h1>Contact Details</h1>
         <label>Name</label>
           <input type="string" value={name} onChange={(e) => setName(e.target.value)} />
             <label>Email</label>

@@ -212,13 +212,19 @@ label {
 }
 
 .contact-form {
-  max-width: 600px;
+  max-width: 300px;
   margin: 40px auto; 
   padding: 20px;
   border: 2px solid green;
   background-color: #ffffff; 
   border-radius: 10px;
-  margin-left: 400px;
+  margin-left: 600px;
+}
+
+.contact-form h1 {
+  text-align: center;
+  color: #080808; 
+  margin-bottom: 20px;
 }
  
 label {
@@ -229,7 +235,7 @@ input {
   padding: 20px;
   display: flex;
   gap: 2rem;
-  width: 50%;
+  width: 80%;
   border-radius: 8px;
 }
 
@@ -251,4 +257,151 @@ input {
 .check-button:hover {
   color: white;
   background-color: #48af4d;
+}
+
+
+/* Media Queries */
+
+/* For screens up to 400px */
+@media (max-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+
+  .input-group-bedroom,
+  .input-group-living,
+  .input-group-bathroom,
+  .input-group-kitchen,
+  .input-group-master,
+  .input-group-service,
+  .input-group-pet,
+  .input-group-free {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 20px 5px;
+  }
+
+  .submit-button,
+  .check-button {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .total-cost h2 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .contact-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* For screens up to 600px */
+@media (max-width: 600px) {
+  .input-group-bedroom,
+  .input-group-living,
+  .input-group-bathroom,
+  .input-group-kitchen,
+  .input-group-master,
+  .input-group-service,
+  .input-group-pet,
+  .input-group-free {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 30px 5px;
+  }
+
+  .submit-button,
+  .check-button {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .total-cost h2 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .contact-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* For screens up to 800px */
+@media (max-width: 800px) {
+  .input-group-bedroom,
+  .input-group-living,
+  .input-group-bathroom,
+  .input-group-kitchen,
+  .input-group-master,
+  .input-group-service,
+  .input-group-pet,
+  .input-group-free {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 40px 5px;
+  }
+
+  .submit-button,
+  .check-button {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .total-cost h2 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .contact-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* For screens up to 990px */
+@media (max-width: 990px) {
+  .input-group-bedroom,
+  .input-group-living,
+  .input-group-bathroom,
+  .input-group-kitchen,
+  .input-group-master,
+  .input-group-service,
+  .input-group-pet,
+  .input-group-free {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 50px 5px;
+  }
+
+  .submit-button,
+  .check-button {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .total-cost h2 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .contact-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
