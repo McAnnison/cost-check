@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
           <ul className="footer-list">
             <li>
               <Image src="/location.gif" alt="Location Icon" width={20} height={20} priority />
-              1234 Main Street, Suite 100
+              Accra Digital Center
             </li>
             <li>
               <Image src="/phone.png" alt="Phone Icon" width={20} height={20} />
