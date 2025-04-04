@@ -1,6 +1,7 @@
 "use client";
 import "../public/style/footer.css";
 import React from 'react';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
@@ -11,8 +12,6 @@ const Footer: React.FC = () => {
           <h3 className="footer-title">Quick Links</h3>
           <ul className="footer-list">
             <li><a href="#" className="footer-link">Home</a></li>
-            <li><a href="#" className="footer-link">Services</a></li>
-            <li><a href="#" className="footer-link">Pricing</a></li>
             <li><a href="#" className="footer-link">About Us</a></li>
             <li><a href="#" className="footer-link">Contact</a></li>
           </ul>
@@ -25,19 +24,25 @@ const Footer: React.FC = () => {
             <li><a href="#" className="footer-link">Home Cleaning</a></li>
             <li><a href="#" className="footer-link">Office Cleaning</a></li>
             <li><a href="#" className="footer-link">Deep Cleaning</a></li>
-            <li><a href="#" className="footer-link">Move In/Out Cleaning</a></li>
-            <li><a href="#" className="footer-link">Commercial Cleaning</a></li>
-          </ul>
+            <li><a href="#" className="footer-link">Move In/Out Cleaning</a></li>          </ul>
         </div>
 
         <div className="footer-section">
           {/* Contact Us Section */}
           <h3 className="footer-title">Contact Us</h3>
           <ul className="footer-list">
-            <li>1234 Main Street, Suite 100</li>
-            <li>New York, NY 10001</li>
-            <li>(212) 345-6789</li>
-            <li><a href="mailto:info@cleanmate.com" className="footer-link">info@cleanmate.com</a></li>
+            <li>
+              <Image src="/location.gif" alt="Location Icon" width={20} height={20} priority />
+              1234 Main Street, Suite 100
+            </li>
+            <li>
+              <Image src="/phone.png" alt="Phone Icon" width={20} height={20} />
+              +233 206 837 999
+            </li>
+            <li>
+              <Image src="/email.gif" alt="Email Icon" width={20} height={20} />
+              <a href="mailto:info@cleanmate.com" className="footer-link">info@cleanmate.com</a>
+            </li>
           </ul>
         </div>
       </div>

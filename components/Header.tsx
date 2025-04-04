@@ -19,6 +19,11 @@ const Header: React.FC = () => {
         <div className="hero-text">
          <h4>Service Calculator</h4> 
         </div>
+
+        <div className="hero-text2">
+        <p>Cleanmate comes with cost calculator – a unique tool which allows you to easily create
+        price estimation forms to give your client idea of the cost of your service.</p>
+        </div>
     </header>
   );
 };

@@ -1,407 +1,324 @@
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: cursive; 
-  background-color: #dadad7; 
-  margin: 0;
-  padding: 0;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
-/* .calculator-container {
-  max-width: 600px;
-  margin: 40px auto; 
-  padding: 20px;
-  background-color: #ffffff; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
-} */
-
-.calculator-text p{
-  font-size: 20px;
-  color: #333;
-  align-items: center;
-  position: relative;
-  margin-left: 100px;
-  margin-right: 100px;
-  text-wrap: center;
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Header */
-h1 {
+@keyframes flyInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes flyInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes flyInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Animations */
+.home-text {
+  animation: flyInFromBottom 0.7s ease-out both;
+}
+
+.home-text h1 {
   text-align: center;
-  color: #080808; 
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
-/* Input group styles */
-.input-group-bedroom {
-  padding: 50px 5px;
-  background-color: white;
-  border-radius: 10px; 
-  max-width: 30%;
-  height: 80px;
-  margin-left: 250px;
+.bedroom {
+  animation: flyInFromLeft 0.7s ease-out both;
+  animation-delay: 0.2s;
 }
-.input-group-living {
-  padding: 50px 5px;
-  background-color: white;
-  border-radius: 10px;
-  max-width: 30%;
-  height: 80px;
-  margin-left: 250px;
-  margin-top: 30px;
-  position: relative;
-  
+
+.bathroom {
+  animation: flyInFromRight 0.7s ease-out both;
+  animation-delay: 0.4s;
 }
-.input-group-bathroom {
-  padding: 50px 5px;
-  background-color: white;
-  border-radius: 10px;
-  max-width: 30%;
-  height: 80px;
-  margin-left: 800px;
-  margin-top: -180px;
+
+.services {
+  animation: flyInFromLeft 0.7s ease-out both;
+  animation-delay: 0.6s;
 }
-.input-group-kitchen {
-  padding: 50px 5px;
-  background-color: white;
-  border-radius: 10px; 
-  max-width: 30%;
-  height: 80px;
-  margin-left: 800px;
-  margin-top: -180px;
+
+.pet, .extra {
+  animation: flyInFromRight 0.7s ease-out both;
+  animation-delay: 0.8s;
 }
-.input-group-master {
-  padding: 50px 5px;
-  background-color: white;
-  border-radius: 10px; 
-  max-width: 30%;
-  height: 80px;
-  margin-top: 30px;
-  margin-left: 250px;
+
+.cost {
+  animation: flyInFromBottom 0.7s ease-out both;
+  animation-delay: 1s;
 }
-.input-group-service {
-  padding: 50px 5px;
-  background-color: white;
-  border-radius: 10px;
-  max-width: 30%;
-  height: 80px;
-  margin-top: 30px;
-  margin-left: 250px;
+
+.form {
+  animation: flyInFromBottom 0.7s ease-out both;
+  animation-delay: 1.2s;
 }
-.input-group-pet {
-  padding: 50px 5px;
-  background-color: white;
-  border-radius: 10px; 
-  max-width: 30%;
-  height: 80px;
-  margin-top: -180px;
-  margin-left: 800px;
+
+/* Layout styles */
+.bedroom-content, .bathroom-content {
   display: flex;
-}
-.input-group-free {
-  padding: 50px 5px;
-  background-color: white;
-  border-radius: 10px;
-  max-width: 30%;
-  height: 80px;
-  margin-left: 800px;
-  margin-top: -180px
+  gap: 10px;
+  align-items: center;
+  margin: 30px 25px;
 }
 
+.image-container {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  color: #333; 
+.bed-image, .bath-image {
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .bed-image,
+.image-container:hover .bath-image {
+  transform: scale(1.03);
+}
+
+/* Image overlay styles */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 20px;
+  color: white;
+}
+
+.image-overlay h3 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* Slider styles */
+.slider-container {
+  flex: 1;
+  padding: 20px 10px;
+}
+
+input[type="range"] {
+  width: 70%;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+input[type="range"]:hover {
+  transform: scale(1.01);
+}
+
+/* Services Section */
+.services {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  margin: 40px;
+  flex-wrap: wrap;
+}
+
+.kitchen, .living, .frequency {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 200px;
+}
+
+.kitchen h3, .living h3, .frequency h3 {
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
-.scroll-container {
-  position: relative;
-  height: 10px;
-  background: #e0e0e0; 
-  border-radius: 5px; 
-  cursor: pointer; 
-}
-
-.scroll-bar {
-  position: relative;
-  height: 100%;
-}
-
-.scroll-thumb {
-  position: absolute;
-  top: -3px; 
-  width: 20px; 
-  height: 20px; 
-  background: #72f087;
-  border-radius: 50%; 
+.selection {
+  padding: 8px 5px;
+  border-radius: 4px;
+  border: 1px solid #252525;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s; 
-}
-
-.scroll-thumb:hover {
-  background: #48af4d; 
-}
-
-.display {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #333; 
-  margin-top: 10px;
-}
-
-/* Dropdown styles */
-.dropdown {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc; 
-  border-radius: 5px; 
-  font-size: 1rem; 
-  margin-top: 5px;
+  max-width: 200px;
+  transition: all 0.3s ease;
 }
 
-.dropdown:focus {
-  border-color: #6dcd5a; 
-  outline: none; 
+.selection:hover {
+  border-color: #007bff;
 }
 
-/* Radio group styles */
-.radio-group {
-  margin-top: 10px;
+.selection:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
 }
 
-/* Button styles */
-.submit-button {
-  width: 10%;
-  padding: 12px 5PX;
-  background-color: #eeeeeb; 
-  color: rgb(2, 2, 2);
-  margin-top: 20px;
-  margin-left: 250px; 
-  border-color:#6be071;
-  border-radius: 20px; 
-  font-size: 1.2rem; 
-  cursor: pointer; 
-  transition: background 0.3s; 
+/* Pet and Extra Sections */
+.pet {
+  padding: 20px 10px;
+  margin-left: 30px;
 }
 
-.submit-button:hover {
-  background-color: #14af1b; 
-  color: #ffffff;
+.extra {
+  padding: 20px 10px;
+  margin-left: 400px;
+  margin-top: -120px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .calculator-container {
-    padding: 15px; 
-  }
-
-  h1 {
-    font-size: 1.5rem; 
-  }
-
-  .submit-button {
-    font-size: 1rem; 
-  }
-}
-
-.total-cost h2 {
-  margin-left: 800px; 
-  margin-top: -40px;
-}
-
-.contact-form {
-  max-width: 300px;
-  margin: 40px auto; 
-  padding: 20px;
-  border: 2px solid green;
-  background-color: #ffffff; 
-  border-radius: 10px;
-  margin-left: 600px;
-}
-
-.contact-form h1 {
-  text-align: center;
-  color: #080808; 
-  margin-bottom: 20px;
-}
- 
-label {
-  padding: 5px;
-}
-
-input {
-  padding: 20px;
+/* Form Styles */
+.form {
   display: flex;
-  gap: 2rem;
-  width: 80%;
+  flex-direction: column;
+  gap: 15px;
+  width: 70%;
+  max-width: 600px;
+  align-items: center;
+  padding: 20px;
+  margin: 40px auto;
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.check-button {
-  width: 10%;
-  padding: 12px 5PX;
-  background-color: #eeeeeb; 
-  color: rgb(2, 2, 2);
-  margin-top: -12px;
-  margin-left: 600px; 
-  margin-bottom: 12px;
-  border-color:#6be071;
-  border-radius: 20px; 
-  font-size: 1.2rem; 
-  cursor: pointer; 
-  transition: background 0.3s; 
+.form h3 {
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.check-button:hover {
+.form-input {
+  padding: 12px;
+  border-radius: 4px;
+  border: 2px solid #333232;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.generate {
+  padding: 12px 24px;
+  border-radius: 15px;
+  background-color: #007bff;
   color: white;
-  background-color: #48af4d;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: auto;
+  min-width: 200px;
+  transition: all 0.3s ease;
 }
 
+.generate:hover {
+  background-color: #022c5a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
-/* Media Queries */
-
-/* For screens up to 400px */
-@media (max-width: 400px) {
-  body {
-    font-size: 14px;
-  }
-
-  .input-group-bedroom,
-  .input-group-living,
-  .input-group-bathroom,
-  .input-group-kitchen,
-  .input-group-master,
-  .input-group-service,
-  .input-group-pet,
-  .input-group-free {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    padding: 20px 5px;
-  }
-
-  .submit-button,
-  .check-button {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .total-cost h2 {
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .contact-form {
-    margin-left: auto;
-    margin-right: auto;
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .extra {
+    margin-left: 30px;
+    margin-top: 20px;
   }
 }
 
-/* For screens up to 600px */
-@media (max-width: 600px) {
-  .input-group-bedroom,
-  .input-group-living,
-  .input-group-bathroom,
-  .input-group-kitchen,
-  .input-group-master,
-  .input-group-service,
-  .input-group-pet,
-  .input-group-free {
-    max-width: 80%;
+@media (max-width: 768px) {
+  .bedroom-content, .bathroom-content {
+    flex-direction: column;
+    margin: 20px 15px;
+  }
+  
+  .image-container, .slider-container {
+    width: 100%;
+  }
+  
+  .services {
+    flex-direction: column;
+    gap: 30px;
+    margin: 20px;
+  }
+  
+  .pet, .extra {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .form {
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
-    height: auto;
-    padding: 30px 5px;
   }
-
-  .submit-button,
-  .check-button {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .total-cost h2 {
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .contact-form {
-    margin-left: auto;
-    margin-right: auto;
+  
+  input[type="range"] {
+    width: 100%;
   }
 }
 
-/* For screens up to 800px */
-@media (max-width: 800px) {
-  .input-group-bedroom,
-  .input-group-living,
-  .input-group-bathroom,
-  .input-group-kitchen,
-  .input-group-master,
-  .input-group-service,
-  .input-group-pet,
-  .input-group-free {
-    max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    padding: 40px 5px;
+@media (max-width: 480px) {
+  .image-overlay {
+    padding: 10px;
   }
-
-  .submit-button,
-  .check-button {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+  
+  .image-overlay h3 {
+    font-size: 16px;
   }
-
-  .total-cost h2 {
-    margin-left: 0;
-    text-align: center;
+  
+  .form-input {
+    width: 90%;
   }
-
-  .contact-form {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* For screens up to 990px */
-@media (max-width: 990px) {
-  .input-group-bedroom,
-  .input-group-living,
-  .input-group-bathroom,
-  .input-group-kitchen,
-  .input-group-master,
-  .input-group-service,
-  .input-group-pet,
-  .input-group-free {
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    padding: 50px 5px;
-  }
-
-  .submit-button,
-  .check-button {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .total-cost h2 {
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .contact-form {
-    margin-left: auto;
-    margin-right: auto;
+  
+  .generate {
+    width: 90%;
   }
 }

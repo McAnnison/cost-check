@@ -33,7 +33,7 @@
 
 .background img {
   width: 100%;
-  height: 100%;
+  height: 100% auto;
   min-height: 50vh;
   margin-top: 0;
   object-fit: cover;
@@ -76,6 +76,43 @@
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
+
+/* .opentext {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+} */
+
+.hero-text2 p {
+  color: white;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  cursor:pointer;
+  top: 50%;
+  animation: typing 4s steps(40, end), blink 0.5s step-end infinite;
+  white-space: wrap;
+  overflow: hidden;
+  text-align: center;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+}
+
+
 @media (max-width: 768px) {
   .header {
     height: 300px;
@@ -111,4 +148,37 @@
   .hero-text h4 {
     font-size: 18px;
   }
+}
+
+@media (max-width: 380px) {
+  .header {
+    height: 180px;
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  .logo {
+    top: 5px;
+    left: 5px;
+  }
+
+  .hero-text h4 {
+    font-size: 16px;
+    top: 50px;
+  }
+
+  .background img {
+    object-fit: cover;
+  }
+
+  .calculator-text p{
+    bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    align-items: justify;
+    position: relative;
+  }
+
 }
