@@ -1,3 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+  margin: 0;
+  padding: 0;
+}
 .header {
   position: relative;
   overflow: hidden;
@@ -13,17 +23,17 @@
   left: 20px;
   z-index: 3;
   cursor: pointer;
-  transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+  transition: transform 0.3s ease; 
 }
 
 .logo:hover {
-  transform: scale(1.05); /* Slightly enlarge logo on hover */
+  transform: scale(1.05); 
 }
 
 .logo h1 {
   color: white;
   font-size: 24px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .background {
@@ -37,11 +47,11 @@
 
 .background img {
   width: 100%;
-  height: auto; /* Fixed typo */
+  height: auto; 
   min-height: 50vh;
   object-fit: cover;
   animation: zoom 10s infinite alternate;
-  filter: brightness(0.8); /* Darken image for better text visibility */
+  filter: brightness(0.4); 
 }
 
 @keyframes zoom {
@@ -54,25 +64,25 @@
 }
 
 .hero-text h4 {
-  color: white;
-  position: relative;
+  color: rgb(255, 255, 255);
+  position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   cursor: pointer;
-  top: 50%;
+  top: 20%;
   text-align: center;
   font-size: 36px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease; /* Smooth scaling effect */
+  transition: transform 0.3s ease; 
 }
 
 .hero-text h4:hover {
-  transform: translate(-50%, -50%) scale(1.05); /* Enlarge on hover */
+  transform: translate(-50%, -50%) scale(1.05); 
 }
 
 .logo.scrolled {
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
+  background-color: rgba(255, 255, 255, 0.9); 
   padding: 5px 10px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
@@ -80,14 +90,15 @@
 
 .hero-text2 p {
   color: white;
-  position: relative;
+  position: absolute;
   left: 50%;
+  top: 60%;
   transform: translate(-50%, -50%);
   z-index: 2;
   cursor: pointer;
   top: 50%;
   animation: typing 4s steps(40, end), blink 0.5s step-end infinite;
-  white-space: nowrap; /* Fixed to prevent wrapping */
+  white-space: wrap; 
   overflow: hidden;
   text-align: center;
   font-size: 24px;
@@ -119,6 +130,14 @@
   .hero-text h4 {
     font-size: 24px;
   }
+
+  .hero-text2 p {
+    bottom: 5px;
+    font-size: 10px;
+    color: #ffffff;
+    align-items: center;
+    position: absolute;
+  }
 }
 
 @media (max-width: 480px) {
@@ -138,10 +157,10 @@
   .hero-text h4 {
     font-size: 18px;
   }
-  .calculator-text p {
-    bottom: 10px;
+  .hero-text2 p {
+    bottom: 5px;
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
     align-items: center;
     position: relative;
   }
@@ -171,9 +190,9 @@
   }
 
   .calculator-text p {
-    bottom: 10px;
+    bottom:5px;
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
     align-items: justify;
     position: relative;
   }

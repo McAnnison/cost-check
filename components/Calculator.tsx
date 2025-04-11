@@ -46,7 +46,7 @@ const Calculator = () => {
     
     const frequencyMultiplier = 
       frequency === "once" ? 1 : 
-      frequency === "weekly" ? 4 : 1; // Monthly same as once
+      frequency === "weekly" ? 4 : 1; 
     
     const subtotal = 
       (bedroomCost + bathroomCost + livingRoomCost + kitchenCost + petsCost + extrasCost) * 
@@ -215,7 +215,7 @@ const Calculator = () => {
       <div className="extra">
         <div className="extra-content">
           <h3>Should we add these services as well? (Ghc50 each)</h3>
-          <label>
+          <label className="label">
             <input 
               type="checkbox"
               name="garden"
@@ -224,7 +224,7 @@ const Calculator = () => {
             />
             Garden
           </label>
-          <label>
+          <label className="label">
             <input 
               type="checkbox"
               name="garage"

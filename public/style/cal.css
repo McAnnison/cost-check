@@ -112,8 +112,9 @@ body {
 .bed-image, .bath-image {
   border-radius: 20px;
   width: 100%;
-  height: auto;
+  height: 150px auto;
   transition: transform 0.3s ease;
+  filter: brightness(0.3);
 }
 
 .image-container:hover .bed-image,
@@ -199,14 +200,25 @@ input[type="range"]:hover {
 
 /* Pet and Extra Sections */
 .pet {
-  padding: 20px 10px;
-  margin-left: 30px;
+  padding: 20px 10px auto;
+  margin-left: 180px;
 }
 
 .extra {
   padding: 20px 10px;
-  margin-left: 400px;
-  margin-top: -120px;
+  margin-left: 500px;
+  margin-top: -160px;
+}
+
+.extra-content label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.cost {
+  margin-left: 500px;
 }
 
 /* Form Styles */
