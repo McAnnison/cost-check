@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "../public/style/cal.css";
+
 
 const Calculator = () => {
   // State for all selections
@@ -83,6 +85,69 @@ const Calculator = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setShowInvoice(true);
+    const invoiceData = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      bedrooms,
+      bathrooms,
+      livingRoomSize,
+      kitchenSize,
+      hasPets,
+      extras,
+      frequency,
+      ...costs,
+    };
+   
+    localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
+    
+    window.open("../components/InvoicePage", "_blank"); 
+  };
+
+  const handleDownloadInvoice = () => {
+    const invoiceHtml = `
+      <html>
+        <head>
+          <title>Invoice - Clean Mate</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 40px; }
+            h2, h3 { color: #28a745; }
+            ul { list-style: none; padding: 0; }
+            li { margin-bottom: 8px; }
+            .footer { margin-top: 40px; color: #888; font-size: 0.9rem; }
+          </style>
+        </head>
+        <body>
+          <h2>Invoice for ${formData.name}</h2>
+          <p>Email: ${formData.email}</p>
+          <p>Phone: ${formData.phone}</p>
+          <h3>Service Breakdown:</h3>
+          <ul>
+            <li>Bedrooms: ${bedrooms} × Ghc100 = Ghc${costs.bedroomCost}</li>
+            <li>Bathrooms: ${bathrooms} × Ghc95 = Ghc${costs.bathroomCost}</li>
+            <li>Living Room (${livingRoomSize}): Ghc${costs.livingRoomCost}</li>
+            <li>Kitchen (${kitchenSize}): Ghc${costs.kitchenCost}</li>
+            ${hasPets ? `<li>Pets: Ghc${costs.petsCost}</li>` : ""}
+            ${extras.garden ? `<li>Garden: Ghc50</li>` : ""}
+            ${extras.garage ? `<li>Garage: Ghc50</li>` : ""}
+            ${extras.gym ? `<li>Gym: Ghc50</li>` : ""}
+            <li>Frequency: ${frequency} (×${costs.frequencyMultiplier})</li>
+          </ul>
+          <h3>Total Cost: Ghc${costs.subtotal}</h3>
+          <div class="footer">
+            &copy; ${new Date().getFullYear()} Clean Mate. All rights reserved.
+          </div>
+          <script>
+            window.onload = function() { window.print(); }
+          </script>
+        </body>
+      </html>
+    `;
+    const newWindow = window.open('', '_blank');
+    if (newWindow) {
+      newWindow.document.write(invoiceHtml);
+      newWindow.document.close();
+    }
   };
 
   return (
@@ -283,31 +348,63 @@ const Calculator = () => {
           onChange={handleFormChange}
           required
         />
-        <button type="submit" className="generate">Generate Invoice</button>
+        <Link
+          href="/components/InvoicePage"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="generate"
+          onClick={(e) => {
+            if (!formData.name || !formData.email || !formData.phone) {
+              e.preventDefault();
+              alert("Please fill in all form fields.");
+            } else {
+              const invoiceData = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          bedrooms,
+          bathrooms,
+          livingRoomSize,
+          kitchenSize,
+          hasPets,
+          extras,
+          frequency,
+          ...costs,
+              };
+              localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
+            }
+          }}
+        >
+          Generate Invoice
+        </Link>
       </form>
 
       {showInvoice && (
-        <div className="invoice">
-          <h2>Invoice for {formData.name}</h2>
-          <p>Email: {formData.email}</p>
-          <p>Phone: {formData.phone}</p>
-          
-          <h3>Service Breakdown:</h3>
-          <ul>
-            <li>Bedrooms: {bedrooms} × Ghc100 = Ghc{costs.bedroomCost}</li>
-            <li>Bathrooms: {bathrooms} × Ghc95 = Ghc{costs.bathroomCost}</li>
-            <li>Living Room ({livingRoomSize}): Ghc{costs.livingRoomCost}</li>
-            <li>Kitchen ({kitchenSize}): Ghc{costs.kitchenCost}</li>
-            {hasPets && <li>Pets: Ghc{costs.petsCost}</li>}
-            {extras.garden && <li>Garden: Ghc50</li>}
-            {extras.garage && <li>Garage: Ghc50</li>}
-            {extras.gym && <li>Gym: Ghc50</li>}
-            <li>Frequency: {frequency} (×{costs.frequencyMultiplier})</li>
-          </ul>
-          
-          <h3>Total Cost: Ghc{costs.subtotal}</h3>
-          <button onClick={() => setShowInvoice(false)}>Close Invoice</button>
-        </div>
+        <>
+          <div className="invoice">
+            <h2>Invoice for {formData.name}</h2>
+            <p>Email: {formData.email}</p>
+            <p>Phone: {formData.phone}</p>
+            <h3>Service Breakdown:</h3>
+            <ul>
+              <li>Bedrooms: {bedrooms} × Ghc100 = Ghc{costs.bedroomCost}</li>
+              <li>Bathrooms: {bathrooms} × Ghc95 = Ghc{costs.bathroomCost}</li>
+              <li>Living Room ({livingRoomSize}): Ghc{costs.livingRoomCost}</li>
+              <li>Kitchen ({kitchenSize}): Ghc{costs.kitchenCost}</li>
+              {hasPets && <li>Pets: Ghc{costs.petsCost}</li>}
+              {extras.garden && <li>Garden: Ghc50</li>}
+              {extras.garage && <li>Garage: Ghc50</li>}
+              {extras.gym && <li>Gym: Ghc50</li>}
+              <li>Frequency: {frequency} (×{costs.frequencyMultiplier})</li>
+            </ul>
+            <h3>Total Cost: Ghc{costs.subtotal}</h3>
+            <button onClick={handleDownloadInvoice}>Download Invoice</button>
+            <button onClick={() => setShowInvoice(false)}>Close Invoice</button>
+          </div>
+          <footer className="footer">
+            &copy; {new Date().getFullYear()} Clean Mate. All rights reserved.
+          </footer>
+        </>
       )}
     </>
   );
