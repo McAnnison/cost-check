@@ -1,36 +1,164 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CleanMate - Cost Calculator
 
-## Getting Started
+A modern web application for calculating cleaning service costs with an intuitive interface and comprehensive pricing options.
 
-First, run the development server:
+## 🧹 About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+CleanMate is a cleaning service cost calculator that helps customers estimate the cost of professional cleaning services. The application provides an interactive interface where users can specify their home details, service preferences, and additional requirements to receive accurate pricing estimates.
+
+## ✨ Features
+
+- **Interactive Cost Calculator**: Real-time pricing based on room specifications
+- **Comprehensive Room Options**: Support for bedrooms, bathrooms, living rooms, and kitchens
+- **Size-based Pricing**: Different rates for small, medium, and large rooms
+- **Pet Accommodation**: Additional pricing for pet-friendly cleaning
+- **Extra Services**: Optional services including garden, garage, and gym cleaning
+- **Frequency Discounts**: Pricing multipliers for recurring services
+- **Invoice Generation**: Downloadable invoices with detailed cost breakdowns
+- **Customer Contact Forms**: Integrated contact information collection
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+
+## 🛠 Tech Stack
+
+### Frontend
+- **Next.js 15.2.3** - React framework with App Router
+- **React 19** - User interface library
+- **TypeScript** - Type-safe JavaScript
+- **CSS3** - Custom styling with animations
+
+### Backend
+- **Express.js** - Node.js web application framework
+- **MongoDB** - NoSQL database for data persistence
+- **Mongoose** - MongoDB object modeling
+- **CORS** - Cross-origin resource sharing
+
+## 💰 Pricing Structure
+
+- **Bedrooms**: GHC 100 per room
+- **Bathrooms**: GHC 95 per room
+- **Living Rooms**: GHC 50 (small), GHC 70 (medium), GHC 90 (large)
+- **Kitchens**: GHC 50 (small), GHC 70 (medium), GHC 90 (large)
+- **Pet Services**: +GHC 100
+- **Extra Services**: +GHC 50 each (garden, garage, gym)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- MongoDB database
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/McAnnison/cost-check.git
+   cd cost-check
+   ```
+
+2. **Install frontend dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Install backend dependencies**
+   ```bash
+   cd backend
+   npm install
+   cd ..
+   ```
+
+4. **Environment Setup**
+   
+   Create a `.env.local` file in the backend directory:
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   PORT=5000
+   ```
+
+### Running the Application
+
+1. **Start the backend server**
+   ```bash
+   cd backend
+   node server.mjs
+   ```
+   The backend will run on `http://localhost:5000`
+
+2. **Start the frontend development server**
+   ```bash
+   npm run dev
+   ```
+   The frontend will run on `http://localhost:3000`
+
+3. **Open your browser**
+   
+   Navigate to [http://localhost:3000](http://localhost:3000) to use the application.
+
+## 📁 Project Structure
+
+```
+cost-check/
+├── app/                    # Next.js app directory
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout component
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── Calculator.tsx     # Main cost calculator
+│   ├── Footer.tsx         # Footer component
+│   ├── Header.tsx         # Header component
+│   └── InvoicePage.tsx    # Invoice generation
+├── backend/               # Express.js backend
+│   ├── config/           # Database configuration
+│   ├── models/           # MongoDB schemas
+│   ├── routes/           # API routes
+│   └── server.mjs        # Server entry point
+├── public/               # Static assets
+│   └── style/           # CSS files
+└── README.md            # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Available Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Frontend
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Backend
+- `node server.mjs` - Start the backend server
 
-## Learn More
+## 🎨 Usage
 
-To learn more about Next.js, take a look at the following resources:
+1. **Enter Room Details**: Specify the number of bedrooms and bathrooms
+2. **Select Room Sizes**: Choose sizes for living rooms and kitchens
+3. **Add Extras**: Include pet services or additional areas (garden, garage, gym)
+4. **Choose Frequency**: Select service frequency for applicable discounts
+5. **Fill Contact Form**: Provide customer contact information
+6. **Generate Invoice**: View and download detailed cost breakdown
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is licensed under the ISC License.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📞 Contact
+
+For support or inquiries about CleanMate services:
+
+- **Location**: Accra Digital Center
+- **Phone**: +233 206 837 999
+- **Email**: info@cleanmate.com
+
+---
+
+© 2025 CleanMate. All rights reserved.
