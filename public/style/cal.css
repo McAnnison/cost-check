@@ -200,25 +200,61 @@ input[type="range"]:hover {
 
 /* Pet and Extra Sections */
 .pet {
-  padding: 20px 10px auto;
-  margin-left: 180px;
+  padding: 20px 40px;
+  margin: 20px 40px;
+}
+
+.pet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pet-content label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pet-content input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .extra {
-  padding: 20px 10px;
-  margin-left: 500px;
-  margin-top: -160px;
+  padding: 20px 40px;
+  margin: 20px 40px;
+}
+
+.extra-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .extra-content label {
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
+.extra-content input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 
 .cost {
-  margin-left: 500px;
+  margin: 30px 40px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 8px;
 }
 
 /* Form Styles */
@@ -283,33 +319,79 @@ input[type="range"]:hover {
     margin-left: 30px;
     margin-top: 20px;
   }
+  
+  .cost {
+    margin-left: 30px;
+  }
 }
 
 @media (max-width: 768px) {
+  .home-text h1 {
+    font-size: 24px;
+    padding: 0 20px;
+  }
+  
   .bedroom-content, .bathroom-content {
     flex-direction: column;
     margin: 20px 15px;
+    gap: 20px;
   }
   
-  .image-container, .slider-container {
+  .image-container {
     width: 100%;
+    max-height: 200px;
+  }
+  
+  .bed-image, .bath-image {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .slider-container {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .slider-container p {
+    font-size: 16px;
   }
   
   .services {
     flex-direction: column;
-    gap: 30px;
-    margin: 20px;
+    gap: 25px;
+    margin: 20px 15px;
+  }
+  
+  .kitchen, .living, .frequency {
+    min-width: 100%;
+  }
+  
+  .selection {
+    max-width: 100%;
+    padding: 12px;
+    font-size: 16px;
   }
   
   .pet, .extra {
-    margin-left: 20px;
+    margin-left: 15px;
     margin-top: 20px;
+    padding: 15px;
+  }
+  
+  .cost {
+    margin-left: 15px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .cost h2 {
+    font-size: 24px;
   }
   
   .form {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
+    padding: 15px;
   }
   
   input[type="range"] {
@@ -318,19 +400,125 @@ input[type="range"]:hover {
 }
 
 @media (max-width: 480px) {
+  .home-text h1 {
+    font-size: 20px;
+    padding: 0 15px;
+  }
+  
+  .bedroom-content, .bathroom-content {
+    margin: 15px 10px;
+    gap: 15px;
+  }
+  
+  .image-container {
+    max-height: 150px;
+  }
+  
+  .bed-image, .bath-image {
+    height: 150px;
+  }
+  
   .image-overlay {
-    padding: 10px;
+    padding: 8px;
   }
   
   .image-overlay h3 {
+    font-size: 14px;
+  }
+  
+  .slider-container {
+    padding: 10px;
+  }
+  
+  .slider-container p {
+    font-size: 14px;
+  }
+  
+  .services {
+    margin: 15px 10px;
+    gap: 20px;
+  }
+  
+  .kitchen h3, .living h3, .frequency h3 {
+    font-size: 16px;
+  }
+  
+  .selection {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .pet, .extra {
+    margin-left: 10px;
+    padding: 10px;
+  }
+  
+  .pet h3, .extra h3 {
+    font-size: 16px;
+  }
+  
+  .extra-content label {
+    font-size: 14px;
+  }
+  
+  .cost {
+    margin-left: 10px;
+  }
+  
+  .cost h2 {
+    font-size: 20px;
+  }
+  
+  .form {
+    width: 95%;
+    padding: 12px;
+  }
+  
+  .form h3 {
     font-size: 16px;
   }
   
   .form-input {
-    width: 90%;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 14px;
   }
   
   .generate {
-    width: 90%;
+    width: 100%;
+    min-width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .home-text h1 {
+    font-size: 18px;
+  }
+  
+  .bedroom-content, .bathroom-content {
+    margin: 10px 8px;
+  }
+  
+  .image-overlay h3 {
+    font-size: 12px;
+  }
+  
+  .slider-container p {
+    font-size: 13px;
+  }
+  
+  input[type="range"] {
+    height: 8px;
+  }
+  
+  .services {
+    margin: 10px 8px;
+  }
+  
+  .cost h2 {
+    font-size: 18px;
   }
 }
