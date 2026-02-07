@@ -5,6 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import "../public/style/cal.css";
 
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
 
 const Calculator = () => {
   // State for all selections
@@ -319,64 +324,83 @@ const Calculator = () => {
         <h2>Final Cost: Ghc{costs.subtotal}</h2>
       </div>
 
-      <form className="form" onSubmit={handleSubmit}>
-        <h3>Fill this form to get your Invoice.</h3>
-        <input 
-          type="text" 
-          name="name"
-          placeholder="Name" 
-          className="form-input"
-          value={formData.name}
-          onChange={handleFormChange}
-          required
-        />
-        <input 
-          type="email" 
-          name="email"
-          placeholder="Email" 
-          className="form-input"
-          value={formData.email}
-          onChange={handleFormChange}
-          required
-        />
-        <input 
-          type="tel" 
-          name="phone"
-          placeholder="Phone" 
-          className="form-input"
-          value={formData.phone}
-          onChange={handleFormChange}
-          required
-        />
-        <Link
-          href="/components/InvoicePage"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="generate"
-          onClick={(e) => {
-            if (!formData.name || !formData.email || !formData.phone) {
-              e.preventDefault();
-              alert("Please fill in all form fields.");
-            } else {
-              const invoiceData = {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          bedrooms,
-          bathrooms,
-          livingRoomSize,
-          kitchenSize,
-          hasPets,
-          extras,
-          frequency,
-          ...costs,
-              };
-              localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
-            }
-          }}
-        >
-          Generate Invoice
-        </Link>
+      <form className="form mx-auto w-full max-w-md px-4 md:px-0" onSubmit={handleSubmit}>
+        <Card>
+          <CardHeader className="p-4 md:p-6">
+            <CardTitle className="text-base md:text-lg">Fill this form to get your Invoice.</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
+            <div className="space-y-2">
+              <Label htmlFor="name">Name</Label>
+              <Input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleFormChange}
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleFormChange}
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="phone">Phone</Label>
+              <Input
+                id="phone"
+                type="tel"
+                name="phone"
+                placeholder="Phone"
+                value={formData.phone}
+                onChange={handleFormChange}
+                required
+              />
+            </div>
+
+            <Button asChild className="w-full">
+              <Link
+                href="/components/InvoicePage"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  if (!formData.name || !formData.email || !formData.phone) {
+                    e.preventDefault();
+                    alert("Please fill in all form fields.");
+                  } else {
+                    const invoiceData = {
+                      name: formData.name,
+                      email: formData.email,
+                      phone: formData.phone,
+                      bedrooms,
+                      bathrooms,
+                      livingRoomSize,
+                      kitchenSize,
+                      hasPets,
+                      extras,
+                      frequency,
+                      ...costs,
+                    };
+                    localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
+                  }
+                }}
+              >
+                Generate Invoice
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
       </form>
 
       {showInvoice && (
